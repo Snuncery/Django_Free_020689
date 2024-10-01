@@ -5,7 +5,7 @@ def home(request):
     return render(request, 'home.html')
 
 def sobre_view(request):
-    return HttpResponse("Nascida do amor pela natureza e pela arte de criar, a Floricultura do Vale é um sonho realizado em um pequeno vilarejo mineiro. Com a missão de levar beleza e emoção através das flores, transformamos cada pedido em uma obra de arte única.")
+    return render(request, 'sobre.html')
 
 def user_view(request, username):
     if username=='Roberto':
@@ -17,7 +17,16 @@ def root_view(request):
     return HttpResponse("Página ROOT.")
 
 def contato_view(request):
-    return HttpResponse("Para encomendas e orçamentos, mande um e-mail para floridovale@gmail.com ou mande uma mensagem para o número (35) 9 9087-7659")
+    return render(request, 'contatos.html') 
 
+def produto_view(request):
+    return render(request, 'produtos.html')
 
-# Create your views here.
+def contexto(request):
+    context = {
+        'nome': 'João',
+        'idade': 30,
+        'hobbies': ['Leitura', 'Ciclismo', 'Cozinhar']
+}
+    return render(request, 'contexto.html', context)
+
