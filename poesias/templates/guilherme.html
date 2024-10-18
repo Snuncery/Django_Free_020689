@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Estudante</title>
+    <link rel="stylesheet" href="{% static 'poesias/css/guilherme.css' %}"> <!-- Ajuste conforme necessário -->
+</head>
+
+<body>
+    <header>
+        <h1>Perfil do Estudante</h1>
+    </header>
+    <main>
+        <section class="profile">
+            <h2>Sobre o Estudante</h2>
+            <img src="{% static 'poesias/images/foto1.jpg' %}" alt="Imagem do estudante">
+            <p>Formado em Técnico em Informática, atualmente cursando Sistemas de Informação. Apaixonado por tecnologia e desenvolvimento de software.</p>
+        </section>
+        <section class="profile">
+            <h2>Experiência e Habilidades</h2>
+            <img src="{% static 'poesias/images/foto2.jfif' %}" alt="Imagem representativa de tecnologia">
+            <p>Habilidades em programação, bancos de dados e desenvolvimento web. Sempre em busca de novos desafios e aprendizados.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Guilherme Ferreira Soares de Medeiros</p>
+    </footer>
+</body>
+
+</html>

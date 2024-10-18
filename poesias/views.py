@@ -30,3 +30,6 @@ def contexto(request):
 }
     return render(request, 'contexto.html', context)
 
+def guilherme_view(request):
+    return render(request, 'guilherme.html')
+
