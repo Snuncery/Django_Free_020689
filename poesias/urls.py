@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from poesias.views import contexto, sobre_view, user_view, root_view, contato_view, home, produto_view, guilherme_view
+from poesias.views import contexto, sobre_view, user_view, root_view, contato_view, home, produto_view, guilherme_view, pextends, poema_detail, category
 
 urlpatterns = [
     path('sobre/', sobre_view),
@@ -26,5 +26,8 @@ urlpatterns = [
     path('home', home),
     path('contexto', contexto),
     path('produtos', produto_view),
-    path('guilherme', guilherme_view)
+    path('guilherme', guilherme_view),
+    path('page_extends/', pextends),
+    path('poema_details/', poema_detail),
+    path('poemas/categorias/<int:category_id>', category, name='category_id' ),
 ]

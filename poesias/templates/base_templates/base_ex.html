@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Título Padrão {% endblock %}</title>
+</head>
+<body>
+    <header> {% block header %} {% include 'base_templates/header.html' %} {% endblock %} </header>
+    <main> {% block content %} {% endblock %} </main>
+    <footer> {% block footer %} {% include 'base_templates/footer.html' %} {% endblock %} </footer>
+</body>
+</html>

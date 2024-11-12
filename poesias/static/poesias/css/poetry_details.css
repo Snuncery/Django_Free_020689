@@ -1,0 +1,64 @@
+/* poetry_details.css */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container da poesia */
+.poetry-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da poesia */
+.poetry-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Estilos para os parágrafos */
+.poetry-container p {
+    margin-bottom: 15px;
+}
+
+/* Autor */
+.poetry-container p:first-of-type {
+    font-weight: bold;
+    color: #7f8c8d;
+}
+
+/* Imagem da capa */
+.poetry-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+/* Mensagem de popularidade */
+.poetry-container p:nth-of-type(3) {
+    font-style: italic;
+    color: #e74c3c;
+}
+
+/* Texto da poesia */
+.poetry-container p:last-of-type {
+    font-size: 1.2em;
+    text-align: justify;
+}
