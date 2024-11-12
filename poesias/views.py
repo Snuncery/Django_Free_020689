@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, Http404
 from faker import Faker
 from .models import Book
@@ -73,4 +73,24 @@ def category(request, category_id):
     return render(request, 'category.html', context={
         'books': books,
         'title': f'Categoria: {books.first().categories.all()[0]}'
+    })
+
+def book_detail(request, id):
+    book = get_object_or_404(Book, id=id)
+    return render(request, 'books_detail.html', {'book': book})
+
+def books_by_author(request, author_id):
+    books = get_object_or_404(Book, author_id=author_id)
+    return render(request, 'books_by_author.html', {'books': books})
+
+def category_404(request, category_id):
+    books = get_list_or_404 (Book.objects.filter(categories__id=category_id,))
+
+    print("Books: ", books)
+    print("Books: ", books[0])
+    print("Books: ", books[0].categories.all()[0])
+
+    return render(request, 'category404.html', context={
+        'books': books,
+        'title': f'Categoria: {books[0].categories.all()[0]}'
     })
