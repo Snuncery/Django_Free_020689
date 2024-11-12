@@ -30,4 +30,5 @@ urlpatterns = [
     path('page_extends/', pextends),
     path('poema_details/', poema_detail),
     path('poemas/categorias/<int:category_id>', category, name='category_id' ),
+    path('poemas/autor/<int:author_id>', author, name='category_id' ),
 ]
