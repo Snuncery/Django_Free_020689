@@ -16,19 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from poesias.views import contexto, sobre_view, user_view, root_view, contato_view, home, produto_view, guilherme_view, pextends, poema_detail, category
+from poesias.views import contexto, sobre_view, user_view, root_view, contato_view, home, produto_view, guilherme_view, pextends, poema_detail, category, author
 
 urlpatterns = [
     path('sobre/', sobre_view),
     path('user/<str:username>', user_view),
-    path('', root_view),
+    path('', home),
     path('contato', contato_view),
-    path('home', home),
     path('contexto', contexto),
     path('produtos', produto_view),
     path('guilherme', guilherme_view),
     path('page_extends/', pextends),
     path('poema_details/', poema_detail),
-    path('poemas/categorias/<int:category_id>', category, name='category_id' ),
-    path('poemas/autor/<int:author_id>', author, name='category_id' ),
+    path('poemas/categoria/<int:category_id>', category, name='category_id'),
+    path('poemas/autor/<int:author_id>', author, name='author_id'),
 ]

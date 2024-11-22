@@ -1,10 +1,16 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, Http404
 from faker import Faker
-from .models import Book
+from .models import Book, Author, Category
 
 def home(request):
-    return render(request, 'home.html')
+    authors = Author.objects.all()
+    categories = Category.objects.all()
+
+    return render(request, 'home.html', context={
+        'authors': authors,
+        'categories': categories
+    })
 
 def sobre_view(request):
     return render(request, 'sobre.html')
@@ -63,16 +69,27 @@ def poema_detail(request):
     return render(request, 'poema_detail.html', {'poetry': poetry})
 
 def category(request, category_id):
-    books = Book.objects.filter(
-        categories__id=category_id,
-    )
+    category_instance = get_object_or_404(Category, id=category_id)
+    books = Book.objects.filter(categories=category_instance)
 
     if not books:
-        raise Http404("Not found")
+        raise Http404("Nenhum livro encontrado para esta categoria.")
     
     return render(request, 'category.html', context={
         'books': books,
-        'title': f'Categoria: {books.first().categories.all()[0]}'
+        'title': f'Categoria: {category_instance.name}'
+    })
+
+def author(request, author_id):
+    author_instance = get_object_or_404(Author, id=author_id)
+    books = Book.objects.filter(author=author_instance)
+
+    if not books:
+        raise Http404("Nenhum livro encontrado para este autor.")
+    
+    return render(request, 'author.html', context={
+        'books': books,
+        'title': f'Autor: {author_instance.name}'
     })
 
 def book_detail(request, id):
